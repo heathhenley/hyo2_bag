@@ -2,11 +2,10 @@ import argparse
 import os
 import logging
 
-from hyo2.abc.lib.logging import set_logging
 from hyo2.bag import __version__
 from hyo2.bag.bag import BAGFile, is_bag
 
-logger = logging.getLogger(__name__)
+logging.getLogger().setLevel(logging.DEBUG)
 
 
 def main():
@@ -25,18 +24,18 @@ def main():
 
     if args.verbose:
         set_logging(ns_list=['hyo2.bag'])
-        logger.debug("> verbosity: ON")
+        logging.debug("> verbosity: ON")
 
-        logger.debug("> input: %s" % args.bag_file)
+        logging.debug("> input: %s" % args.bag_file)
 
         if args.output:
             args.output = os.path.abspath(args.output)
-            logger.debug("> output: %s" % args.output)
+            logging.debug("> output: %s" % args.output)
         else:
             args.output = None
-            logger.debug("> output: [default]")
+            logging.debug("> output: [default]")
 
-        logger.debug("> format: %s" % args.format)
+        logging.debug("> format: %s" % args.format)
 
     if not os.path.exists(args.bag_file):
         parser.exit(1, "ERROR: the input valid does not exist: %s" % args.bag_file)
@@ -63,7 +62,7 @@ def main():
         parser.exit(1, "ERROR: issue in output creation: %s" % e)
 
     if args.verbose:
-        logger.debug("> DONE")
+        logging.debug("> DONE")
 
 
 if __name__ == "__main__":
