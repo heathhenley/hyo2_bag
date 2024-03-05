@@ -1,6 +1,7 @@
 import argparse
 import os
 import logging
+import sys
 
 from hyo2.bag import __version__
 from hyo2.bag.bag import BAGFile, is_bag
@@ -8,7 +9,9 @@ from hyo2.bag.bag import BAGFile, is_bag
 logging.getLogger().setLevel(logging.DEBUG)
 
 
-def main():
+def main(args=None):
+    if args is not None:
+        sys.argv = args
     app_name = "bag_elevation"
     app_info = "Extraction of elevation layer from an OpenNS BAG file, using hyo2.bag r%s" % __version__
 
@@ -23,9 +26,7 @@ def main():
     args = parser.parse_args()
 
     if args.verbose:
-        set_logging(ns_list=['hyo2.bag'])
         logging.debug("> verbosity: ON")
-
         logging.debug("> input: %s" % args.bag_file)
 
         if args.output:
