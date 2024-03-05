@@ -5,7 +5,7 @@ from shutil import copyfile
 from hyo2.bag.bag import BAGFile
 from hyo2.bag.helper import Helper
 
-logging.getLogger(__name__).setLevel(logging.DEBUG)
+logging.getLogger().setLevel(logging.DEBUG)
 
 file_bag_0 = os.path.join(Helper.samples_folder(), "bdb_01.bag")
 if not os.path.exists(file_bag_0):
