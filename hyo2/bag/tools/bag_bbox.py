@@ -9,9 +9,9 @@ from hyo2.bag.bag import BAGFile, is_bag
 
 logging.getLogger().setLevel(logging.DEBUG)
 
-def main(args=None):
-    if args is not None:
-        sys.argv = [sys.argv[0]] + args
+def main(argv=None):
+    if argv is not None:
+        sys.argv = argv
     app_name = "bag_bbox"
     app_info = "Extraction of bounding box from an OpenNS BAG file, using hyo2.bag r%s" % __version__
 

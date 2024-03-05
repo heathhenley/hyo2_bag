@@ -9,9 +9,9 @@ from hyo2.bag.bag import BAGFile, is_bag
 logging.getLogger().setLevel(logging.DEBUG)
 
 
-def main(args=None):
-    if args is not None:
-        sys.argv = args
+def main(argv=None):
+    if argv is not None:
+        sys.argv = argv
     app_name = "bag_elevation"
     app_info = "Extraction of elevation layer from an OpenNS BAG file, using hyo2.bag r%s" % __version__
 
