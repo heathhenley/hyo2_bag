@@ -1,5 +1,4 @@
 import logging
-import subprocess
 import os
 
 from hyo2.bag.helper import Helper
@@ -22,6 +21,6 @@ logging.debug("")
 
 # test file
 file_bag_0 = os.path.join(Helper.samples_folder(), "bdb_01.bag")
-logging.debug("# %s" % file_bag_0)
+logging.debug(f"# Test file: {file_bag_0}")
 tools.bag_metadata.main([file_bag_0])
 logging.debug("")

@@ -1,5 +1,6 @@
 import os
 import logging
+import sys
 import argparse
 
 from hyo2.bag import __version__
@@ -8,7 +9,9 @@ from hyo2.bag.bag import BAGFile, is_bag
 logging.getLogger().setLevel(logging.DEBUG)
 
 
-def main():
+def main(argv=None):
+    if argv is not None:
+        sys.argv = argv
     app_name = "bag_tracklist"
     app_info = "Extraction the tracklist from an OpenNS BAG file, using hyo2.bag r%s" % __version__
 
